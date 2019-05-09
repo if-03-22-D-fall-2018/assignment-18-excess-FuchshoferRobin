@@ -34,21 +34,28 @@ int main(int argc,char *argv[])
 		}
 
 		counterOfAllChars++;
-  }
+	}
+	int CounterOfPages = counterOfAllChars / onePage;
 
   for (int i = 0; i < onePage; i++) {
     printf("%c", line[i]);
   }
 
-	printf("Enter Next Page [N]:\n");
+	int position = onePage;
 
-	char input = getchar();
-
-	if(input == 'N')
+	for (int i = 0; i < CounterOfPages; i++)
 	{
-	  for (int i = onePage; i < counterOfAllChars; i++) {
-	    printf("%c", line[i]);
-	  }
+		printf("Enter Next Page [N]:\n");
+		char input = getchar();
+
+		if(input == 'N')
+		{
+			for (int i = position; i < position+onePage; i++) {
+				printf("%c", line[i]);
+			}
+			position+onePage;
+		}
 	}
+
   return 0;
 }
